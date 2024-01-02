@@ -1,0 +1,19 @@
+# Don't push your key and map ids
+secrets.txt
+mp_ids.txt
+
+# Ignore files that are outputted
+main/output/**
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# virtualenv
+.venv/
+venv/
+ENV/
+
+# IDE files
+.idea/
