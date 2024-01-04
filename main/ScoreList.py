@@ -40,12 +40,12 @@ class ScoreList:
             for score in scores:
                 beatmap_scores[score.beatmap_id].append(score)
         for scores in beatmap_scores.values():
-            scores.sort(key=lambda i: i.score_value, reverse=True)
+            scores.sort(key=lambda i: i.normalized, reverse=True)
         return beatmap_scores
 
     def drop_bottom_scores(self, k=1):
         for player, scores in self.player_scores.items():
-            scores.sort(key=lambda i: i.score_value, reverse=True)
+            scores.sort(key=lambda i: i.normalized, reverse=True)
             # Mark score as do not include
             for ind in range(1, k + 1):
                 scores[-ind].results_include = False

@@ -41,7 +41,7 @@ def main():
         for score in scores:
             if not score.results_include:
                 print("[EXCLUDED] ", end="")
-            print(score_list.name_map[score.player_id], score.score_value, "%.2f" % score.accuracy, score.mods)
+            print(score_list.name_map[score.player_id], score.score_value, score.normalized, "%.2f" % score.accuracy, score.mods)
 
     # write scores to a json file (will restore this info later)
     store_player_score(score_list)
