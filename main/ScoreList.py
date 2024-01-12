@@ -28,7 +28,11 @@ class ScoreList:
         return list(self.player_scores.keys())
 
     def update_name_map(self, api):
-        players = api.users(self.get_players())
+        USERS = self.get_players()
+        # osu apiv2 limits batching to 50 people at once
+        players = []
+        for ind in range(0, len(USERS), 50):
+            players.extend(api.users(USERS[ind:ind+50]))
         self.name_map = {
             player.id: player.username for player in players
         }
